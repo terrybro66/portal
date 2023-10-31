@@ -9,6 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^8.2.2"
+    "@react-three/drei": "^9.88.9",
+    "@react-three/fiber": "^8.15.9",
+    "concurrently": "^8.2.2",
+    "react-router": "^6.17.0",
+    "react-router-dom": "^6.17.0",
+    "three": "^0.158.0"
   }
 }
