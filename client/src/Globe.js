@@ -1,22 +1,35 @@
 import React, { useRef } from "react";
-import { useTexture } from "@react-three/drei";
+import { useTexture, Text } from "@react-three/drei";
 import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
-
-const Globe = ({ texture }) => {
+const Globe = () => {
   const meshRef = useRef();
-
-  const map = useTexture(texture);
+  const map = useTexture("/textures/earth.jpg");
 
   useFrame(() => {
-    meshRef.current.rotation.y += 0.01;
+    if (meshRef.current) {
+      // Continuously rotate the globe
+      meshRef.current.rotation.y += 0.003;
+    }
   });
 
   return (
-    <mesh ref={meshRef}>
-      <sphereGeometry args={[0.5, 82, 82]} />
-      <meshStandardMaterial map={map} side={THREE.BackSide} />
-    </mesh>
+    <>
+      <mesh>
+        <Text
+          fontSize={0.3}
+          position={[0, -1, 0]}
+          anchorY={"bottom"}
+          font="fonts/Chopsic.otf"
+        >
+          Flight
+        </Text>
+      </mesh>
+      <mesh ref={meshRef} position={[0, 0.4, 0]}>
+        <sphereGeometry args={[0.7, 82, 82]} />
+        <meshStandardMaterial map={map} />
+      </mesh>
+    </>
   );
 };
 

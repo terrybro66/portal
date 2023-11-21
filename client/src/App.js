@@ -25,7 +25,7 @@ function App() {
 
       {activeSection === "r3f" && (
         <Canvas
-          camera={{ position: [0, 10, 40], near: 0.1, far: 100, fov: 60 }}
+          camera={{ position: [0, 10, 40], near: 0.1, far: 1000, fov: 60 }}
         >
           <Environment background={"only"} files={"/textures/moonless.exr"} />
           <ambientLight />

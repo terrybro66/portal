@@ -5,13 +5,16 @@ import {
   Environment,
   useTexture,
 } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
-
 import * as THREE from "three";
-import Vanguard from "./Vanguard";
-import Globe from "./Globe";
 
-const Project = ({ children, handleMenuClick, texture, name, ...props }) => {
+const Project = ({
+  children,
+  handleMenuClick,
+  texture,
+  name,
+  component: Component,
+  ...props
+}) => {
   const map = useTexture(texture);
   const meshRef = useRef();
 
@@ -23,11 +26,12 @@ const Project = ({ children, handleMenuClick, texture, name, ...props }) => {
         scale={5}
       >
         <MeshPortalMaterial side={THREE.DoubleSide}>
-          <ambientLight intensity={0.8} />
+          <ambientLight intensity={0.6} />
           <Environment preset="sunset" />
-          <Globe texture={"/textures/stars.jpg"} />
+          {/* <D3 position={[0, -0.9, 0]} rotation={[0, 0.3, 0]} /> */}
+          <Component position={[0, -0.9, 0]} rotation={[0, 0.3, 0]} />
           <mesh>
-            <sphereGeometry args={[10, 64, 64]} position={[-10, 10, 0]} />
+            <sphereGeometry args={[10, 64, 64]} />
             <meshStandardMaterial map={map} side={THREE.BackSide} />
           </mesh>
         </MeshPortalMaterial>
