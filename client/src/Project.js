@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import {
   RoundedBox,
   MeshPortalMaterial,
@@ -13,22 +13,28 @@ const Project = ({
   texture,
   name,
   component: Component,
+  active,
   ...props
 }) => {
   const map = useTexture(texture);
   const meshRef = useRef();
 
   return (
-    <group {...props}>
+    <group
+      {...props}
+      camera={{ position: [0, 1000, 40], near: 0.1, far: 1000, fov: 60 }}
+    >
       <RoundedBox
         args={[2, 3, 0.1]}
         onClick={() => handleMenuClick(name)}
         scale={5}
       >
-        <MeshPortalMaterial side={THREE.DoubleSide}>
+        <MeshPortalMaterial
+          side={THREE.DoubleSide}
+          blend={active === name ? 1 : 0}
+        >
           <ambientLight intensity={0.6} />
           <Environment preset="sunset" />
-          {/* <D3 position={[0, -0.9, 0]} rotation={[0, 0.3, 0]} /> */}
           <Component position={[0, -0.9, 0]} rotation={[0, 0.3, 0]} />
           <mesh>
             <sphereGeometry args={[10, 64, 64]} />

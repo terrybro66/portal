@@ -1,0 +1,97 @@
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(253, 253, 253, 0.4),
+      0 0 0 0 rgba(255, 254, 254, 0.4), 0 0 0 0 rgba(252, 251, 251, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 0 7px rgba(0, 0, 0, 0), 0 0 0 10px rgba(0, 0, 0, 0),
+      0 0 0 0 rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 0 15px rgba(254, 253, 253, 0),
+      0 0 0 17px rgba(252, 251, 251, 0), 0 0 0 10px rgba(247, 247, 247, 0);
+  }
+}
+
+.marker {
+  width: 9px;
+  height: 9px;
+  background-color: red;
+  border-radius: 50%;
+  animation: pulse 2.5s infinite;
+  cursor: pointer;
+}
+
+.modal {
+  font-size: 0.8rem;
+  position: absolute;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 1000;
+}
+
+.modal.open {
+  width: 200px; /* Adjust as needed */
+  height: 50px; /* Adjust as needed */
+}
+.closeModal {
+  width: 12px;
+  height: 12px;
+}
+.closeModal:hover {
+  cursor: pointer;
+}
+.textPanels {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 50;
+  left: 50;
+  color: #fff;
+  z-index: 200;
+  pointer-events: none;
+}
+.textPanels p {
+  position: absolute;
+  font-size: 0.8rem;
+  width: 260px;
+  padding: 14px 14px 20px;
+  color: rgb(255, 255, 255); /* 50% opacity */
+  opacity: 0.5;
+  transition: opacity 2s ease-in-out; /* Transition */
+}
+.textPanels p:nth-child(1) {
+  top: 110px;
+  left: 160px;
+}
+
+.textPanels p:nth-child(2) {
+  top: 240px;
+  left: 60px;
+}
+
+.textPanels p:nth-child(3) {
+  top: 400px;
+  left: 40px;
+}
+.textPanels p:nth-child(4) {
+  top: 80px;
+  right: 30px;
+}
+
+.textPanels p:nth-child(5) {
+  top: 240px;
+  right: 40px;
+}
+
+.textPanels p:nth-child(6) {
+  top: 400px;
+  right: 60px;
+}
+.hovered {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  opacity: 1 !important;
+}

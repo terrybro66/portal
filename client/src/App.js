@@ -1,38 +1,70 @@
 import React, { useState, useEffect } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Environment } from "@react-three/drei";
+import { Canvas, useLoader, useThree } from "@react-three/fiber";
+import {
+  OrbitControls,
+  Environment,
+  useTexture,
+  Html,
+  Text,
+} from "@react-three/drei";
+import { TextureLoader, Backside } from "three";
+import * as THREE from "three";
 import Menu from "./Menu";
-import D3 from "./D3";
-import Vanguard from "./Vanguard";
+import Globe from "./Globe";
+import Soldier from "./Soldier";
 import "./App.css";
+import { color } from "d3";
+import Graph from "./Graph";
+import DeckMap from "./DeckMap";
+import styles from "./App.module.css";
 
 function App() {
-  const [activeSection, setActiveSection] = useState("r3f");
+  const [activeSection, setActiveSection] = useState("graph");
+  const [isFading, setIsFading] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   const handleMenuClick = (section) => {
-    console.log("section", section);
-    setActiveSection(section);
+    setIsFading(true);
+
+    setTimeout(() => {
+      setActiveSection(section);
+      setIsFading(false);
+    }, 500); // Delay for 1 second (adjust as needed)
   };
-
   return (
-    <div className="container">
-      {activeSection === "kepler" && <Vanguard />}
-      {activeSection === "d3" && (
-        <Canvas shadows camera={{ position: [0, 0, 0], fov: 30 }}>
-          <D3 />
-        </Canvas>
-      )}
+    <div
+      className={`container ${isLoaded ? "fade-in" : ""} ${
+        isFading ? "fade-out" : ""
+      }`}
+    >
+      {activeSection === "graph" && <Graph handleMenuClick={handleMenuClick} />}
+      {activeSection === "rtf" && (
+        <>
+          <button
+            className={styles.home}
+            onClick={() => handleMenuClick("graph")}
+          >
+            My Button
+          </button>
 
-      {activeSection === "r3f" && (
-        <Canvas
-          camera={{ position: [0, 10, 40], near: 0.1, far: 1000, fov: 60 }}
-        >
-          <Environment background={"only"} files={"/textures/moonless.exr"} />
-          <ambientLight />
-          <pointLight position={[10, 10, 10]} />
-          <Menu handleMenuClick={handleMenuClick} />
-        </Canvas>
+          <Canvas
+            camera={{ position: [0, 10, 40], near: 0.1, far: 1000, fov: 60 }}
+          >
+            <Environment background={"only"} files={"textures/bg.hdr"} />
+
+            {activeSection === "shooter" && <Soldier position={[-4, 2, -4]} />}
+            {activeSection === "globe" && <Globe />}
+            {activeSection === "rtf" && (
+              <Menu handleMenuClick={handleMenuClick} active={activeSection} />
+            )}
+          </Canvas>
+        </>
       )}
+      {activeSection === "pop" && <DeckMap />}
     </div>
   );
 }
