@@ -1,0 +1,60 @@
+[
+  {
+    "name": "King's Cross",
+
+    "x": 418,
+    "y": 103,
+    "connections": [
+      {
+        "line": "Other Line 1",
+        "station": "Connecting Station A"
+      }
+    ],
+    "curveToNext": "45"
+  },
+  {
+    "name": "Farringon",
+    "x": 443,
+    "y": 118,
+    "connections": [
+      {
+        "line": "Other Line 2",
+        "station": "Connecting Station B"
+      }
+    ],
+    "curveToNext": "0"
+  },
+  {
+    "name": "Barbican",
+
+    "x": 460,
+    "y": 136,
+    "connections": [],
+    "curveToNext": "45"
+  },
+  {
+    "name": "Moorgate",
+
+    "x": 496,
+    "y": 145,
+    "connections": ["Northern"],
+    "curveToNext": "0"
+  },
+  {
+    "name": "Liverpool Street",
+
+    "x": 557,
+    "y": 145,
+    "connections": ["Central"],
+    "curveToNext": "90"
+  },
+  {
+    "name": "Aldgate",
+    "coordinates": {
+      "x": 557,
+      "y": 145
+    },
+    "connections": [],
+    "curveToNext": "90"
+  }
+]

@@ -13,6 +13,9 @@
       0 0 0 17px rgba(252, 251, 251, 0), 0 0 0 10px rgba(247, 247, 247, 0);
   }
 }
+h1 {
+  padding: 44px 0 0 14px;
+}
 
 .marker {
   width: 9px;
@@ -21,6 +24,7 @@
   border-radius: 50%;
   animation: pulse 2.5s infinite;
   cursor: pointer;
+  z-index: 10000;
 }
 
 .modal {

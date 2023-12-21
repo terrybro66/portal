@@ -10,8 +10,8 @@ function Graph({ handleMenuClick }) {
   const [modalTop, setModalTop] = useState(0);
   const [viewport, setViewport] = useState({
     longitude: 184.931386,
-    latitude: -19.761891,
-    zoom: 12.2,
+    latitude: -19.746891,
+    zoom: 12.1,
     pitch: 30,
     bearing: 20,
   });
@@ -35,28 +35,28 @@ function Graph({ handleMenuClick }) {
       longitude: 184.961386,
       latitude: -19.761891,
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      name: "flight",
+      name: "tube",
       index: 3,
     },
     {
       longitude: 184.931386,
       latitude: -19.751891,
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqu.",
-      name: "pop",
+      name: "word",
       index: 4,
     },
     {
       longitude: 184.941386,
       latitude: -19.741891,
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.",
-      name: "rtf",
+      name: "train",
       index: 5,
     },
     {
       longitude: 184.961386,
       latitude: -19.731891,
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      name: "flight",
+      name: "heat",
       index: 6,
     },
     // Add more markers as needed

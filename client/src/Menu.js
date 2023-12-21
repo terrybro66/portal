@@ -1,6 +1,5 @@
 import React from "react";
-import { useTexture, OrbitControls, Text } from "@react-three/drei";
-import { Link } from "wouter";
+import { OrbitControls } from "@react-three/drei";
 
 import Project from "./Project";
 import Globe from "./Globe";
